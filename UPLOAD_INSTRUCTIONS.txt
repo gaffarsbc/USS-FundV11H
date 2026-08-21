@@ -1,0 +1,24 @@
+GITHUB WEB UPLOAD PACKAGE
+=========================
+
+1. Extract this ZIP and open the folder inside it.
+2. Upload EVERY file inside that folder to the ROOT of the GitHub repository.
+3. Do not upload the outer folder as a nested project directory.
+4. Do not delete any flat_* file. restore-project.mjs reconstructs the original folders during the Cloudflare build.
+
+Cloudflare settings
+-------------------
+Build command:
+  npm run build
+
+Deploy command:
+  npx wrangler deploy --config dist/server/wrangler.json
+
+Root directory:
+  Leave blank (repository root) or use / if Cloudflare requires a value.
+
+Source archive files preserved: 76
+Flat payload files: 73
+Operational root files: package.json, package-lock.json, .npmrc, restore-project.mjs, UPLOAD_INSTRUCTIONS.txt
+
+package.json differs from the source only in scripts needed to restore the flat package before build and to provide the explicit Wrangler deploy command.
